@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Environment Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
+  
+</head>
+<body>
+  <header>
+    <h1>Environment Monitoring Dashboard</h1>
+    <div id="datetime" class="datetime-only"></div>
+  </header>
+
+  <!-- Sensor Icon Cards -->
+  <section class="icons">
+    <div class="icon-card">
+      <img src="images/temperature.png" alt="Temperature" />
+      <p class="sensor-name">Temperature</p>
+      <p class="sensor-value" id="temp">-- °C</p>
+    </div>
+    <div class="icon-card">
+      <img src="images/humidity.png" alt="Humidity" />
+      <p class="sensor-name">Humidity</p>
+      <p class="sensor-value" id="humidity">-- %</p>
+    </div>
+    <div class="icon-card">
+      <img src="images/co.png" alt="Carbon Monoxide" />
+      <p class="sensor-name">Carbon Monoxide</p>
+      <p class="sensor-value" id="co">-- ppm</p>
+    </div>
+    <div class="icon-card">
+      <img src="images/smoke.png" alt="Smoke" />
+      <p class="sensor-name">Smoke</p>
+      <p class="sensor-value" id="smoke">-- ppm</p>
+    </div>
+  </section>
+
+  <!-- Alert Boxes -->
+  <section id="alerts">
+  <div class="alert-box" id="temp-alert"></div>
+  <div class="alert-box" id="humidity-alert"></div>
+  <div class="alert-box" id="co-alert"></div>
+  <div class="alert-box" id="smoke-alert"></div>
+</section>
+
+
+  <!-- Data Table -->
+  <section class="data-table">
+    <h2>Latest Sensor Readings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Temperature (°C)</th>
+          <th>Humidity (%)</th>
+          <th>CO (ppm)</th>
+          <th>Smoke (ppm)</th>
+        </tr>
+      </thead>
+      <tbody id="data-body">
+        <!-- Populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <form id="airQualityForm" style="display: none;">
+  <input type="email" name="to_email" id="formEmail" required>
+  <input type="text" name="message" id="formMessage">
+</form>
+<input type="email" id="recipientEmail" placeholder="Enter email address">
+<button id="sendEmailBtn">Send Email</button>
+<div id="emailStatus"></div>
+
+</body>
+</html>
